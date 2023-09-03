@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity DeploymentRequest.
+    -->
+    <changeSet id="20230903144758-1" author="jhipster">
+        <createTable tableName="deployment_request">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="deploy_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_group_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_sequence" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="app_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="request_component" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="request_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="release_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="module_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="portal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="requestor_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="jira_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pts_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="build_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rlm_request_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rlm_request_env" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="deployment_category" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="promotion_env" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="start_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="end_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_completed_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="trigger_next_seq_deploy" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="qa_sign_off_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="chgno" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="qa_sign_off_id_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="deploy_group_id_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="deployment_request" columnName="start_time" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="deployment_request" columnName="end_time" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="deployment_request" columnName="deploy_completed_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230903144758-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/deployment_request.csv"
+                  separator=";"
+                  tableName="deployment_request"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="deploy_id" type="numeric"/>
+            <column name="deploy_group_id" type="numeric"/>
+            <column name="deploy_sequence" type="numeric"/>
+            <column name="app_id" type="numeric"/>
+            <column name="deploy_name" type="string"/>
+            <column name="request_component" type="string"/>
+            <column name="deploy_status" type="string"/>
+            <column name="request_type" type="string"/>
+            <column name="release_type" type="string"/>
+            <column name="module_name" type="string"/>
+            <column name="portal" type="string"/>
+            <column name="requestor_id" type="string"/>
+            <column name="jira_id" type="string"/>
+            <column name="pts_id" type="numeric"/>
+            <column name="build_id" type="string"/>
+            <column name="rlm_request_id" type="string"/>
+            <column name="rlm_request_env" type="string"/>
+            <column name="deployment_category" type="string"/>
+            <column name="promotion_env" type="string"/>
+            <column name="start_time" type="date"/>
+            <column name="end_time" type="date"/>
+            <column name="deploy_completed_date" type="date"/>
+            <column name="trigger_next_seq_deploy" type="boolean"/>
+            <column name="qa_sign_off_id" type="numeric"/>
+            <column name="chgno" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

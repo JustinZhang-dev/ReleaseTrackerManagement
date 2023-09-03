@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity DeployGroup.
+    -->
+    <changeSet id="20230903144558-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="app_id_id"
+                                 baseTableName="deploy_group"
+                                 constraintName="fk_deploy_group__app_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"
+                                 />
+    </changeSet>
+</databaseChangeLog>
